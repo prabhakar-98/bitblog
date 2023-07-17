@@ -1,11 +1,14 @@
 *{
     box-sizing: border-box;
+    
 }
 a{
     cursor: pointer;
 }
 body{
     color: #222;
+    background-color:#e2e8ef;
+    background-image: url('https://www.bitmesra.ac.in/UploadedDocuments/admintnp/images/1.jpg');
 }
 img{
     max-width: 100%;
@@ -14,13 +17,17 @@ main{
     padding: 10px;
     max-width: 960px;
     margin: 0 auto;
+   
 }
 header{
+    
     display:flex;
     justify-content:space-between;
     margin-top: 20px;
     margin-bottom: 50px;
     align-items: center;
+    font-size: larger;
+   
 }
 header a{
     text-decoration:none;
@@ -155,4 +162,16 @@ a svg{
 }
 .post{
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+
+.sign{
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+.post{
+    background-color:#e2e8ef;
+}
+.sign{
+   font-size: larger;
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   background-color:#fff;
 }

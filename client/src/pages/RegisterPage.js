@@ -5,7 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
+
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -33,7 +33,8 @@ export default function RegisterPage() {
     }
   }
   return (
-    <ThemeProvider theme={theme} >
+    <div className='sign'>
+<ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -42,6 +43,7 @@ export default function RegisterPage() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+           
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
@@ -111,9 +113,6 @@ export default function RegisterPage() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="login" variant="body2">
-                  Already have an account? Sign in
-                </Link>
               </Grid>
             </Grid>
           </Box>
@@ -121,5 +120,7 @@ export default function RegisterPage() {
      
       </Container>
     </ThemeProvider>
+    </div>
+    
   );
 }

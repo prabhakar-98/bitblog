@@ -1,11 +1,11 @@
 import {Link} from "react-router-dom";
-import {useContext, useEffect, useState} from "react";
+import {useContext, useEffect} from "react";
 import {UserContext} from "./UserContext";
 
 export default function Header() {
   const {setUserInfo,userInfo} = useContext(UserContext);
   useEffect(() => {
-    fetch('http://localhost:4000/profile', {
+    fetch('https://blogappbackend-krlw.onrender.com/profile', {
       credentials: 'include',
     }).then(response => {
       response.json().then(userInfo => {
@@ -25,8 +25,8 @@ export default function Header() {
   const username = userInfo?.username;
 
   return (
-    <header>
-      <Link to="/" className="logo">MyBlog</Link>
+    <header className="header">
+      <Link to="/" className="logo">BIT BLOG</Link>
       <nav>
         {username && (
           <>

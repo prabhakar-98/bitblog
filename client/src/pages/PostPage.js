@@ -23,7 +23,7 @@ export default function PostPage() {
     <div className="post-page">
       <h1>{postInfo.title}</h1>
       <time>{formatISO9075(new Date(postInfo.createdAt))}</time>
-      <div className="author">by @{postInfo.author.username.split('@')[0]}</div>
+      <div className="author"><h2>by @{postInfo.author.username.split('@')[0]}</h2></div>
       {userInfo.id === postInfo.author._id && (
         <div className="edit-row">
           <Link className="edit-btn" to={`http://localhost:4000/edit/${postInfo._id}`}>
