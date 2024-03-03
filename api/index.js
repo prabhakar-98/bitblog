@@ -10,7 +10,10 @@ const cookieParser = require('cookie-parser');
 const multer = require('multer');
 const uploadMiddleware = multer({ dest: 'uploads/' });
 const fs = require('fs');
-
+const { putobject } = require('./aws/awsauth');
+const { getObject } = require("./aws/awsauth");
+const { Alllist } = require("./aws/awsauth");
+const { deleteobect } = require("./aws/awsauth");
 
 
 app.use((req, res, next) => {
@@ -147,6 +150,17 @@ app.get('/post/:id', async (req, res) => {
   const postDoc = await Post.findById(id).populate('author', ['username']);
   res.json(postDoc);
 })
-
+app.post('/uplad',async(req,res)=>{
+  try{
+          const filename =req.filename;
+          // console.log(filename);
+          const url =putobject(filename);
+          res.send(url)
+          console.log(url);
+  }
+  catch(err){
+      res.send(err)
+  }
+})
 app.listen(4000);
 //
