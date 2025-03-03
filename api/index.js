@@ -16,12 +16,19 @@ const { Alllist } = require("./aws/awsauth");
 const { deleteobect } = require("./aws/awsauth");
 
 
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://resplendent-semifreddo-ab4923.netlify.app"
+];
+
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Credentials", "true");
   next();
 });
 const salt = bcrypt.genSaltSync(10);
